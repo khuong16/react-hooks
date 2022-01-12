@@ -29,7 +29,7 @@ const App = () => { // class
     }
 
     let newToDo = {
-      id: 'abc',
+      id: Math.floor((Math.random() * 100000) + 1),
       title: address,
       type: 'random'
     }
@@ -41,6 +41,12 @@ const App = () => { // class
 
     setAddress(event.target.value);
     //console.log(event.target.value);
+  }
+
+  const deleteDataToDo = (id) => {
+    let currentTodos = todos
+    currentTodos = currentTodos.filter(item => item.id !== id);
+    setTodos(currentTodos);
   }
 
   // re-render
@@ -57,11 +63,13 @@ const App = () => { // class
         <Todo
           todos={todos}
           title="All Jobs"
+          deleteDataToDo={deleteDataToDo}
         />
 
         <Todo
           todos={todos.filter(item => item.type !== '1')}
           title={`Khuong's todos`}
+          deleteDataToDo={deleteDataToDo}
         />
       </header>
     </div>

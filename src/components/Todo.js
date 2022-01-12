@@ -3,20 +3,27 @@ const Todo = (props) => {
     // Chỉ truyền dữ liệu từ cha xuống con.
     // top -> bottom.
 
-    const todos = props.todos;
+    //const todos = props.todos;
+
+    const { todos, title, deleteDataToDo } = props;
+
+    const handleDelete = (idddd) => {
+        deleteDataToDo(idddd);
+    }
 
     return (
         <>
             <div className='todo-container'>
                 <div className="title-todo">
-                    {props.title}
+                    {title}
                 </div>
                 {todos && todos.length > 0 &&
                     <>
                         {todos.map(todo => {
                             return (
                                 <div className='todo-child' key={todo.id}>
-                                    {todo.id} - {todo.title}
+                                    {todo.id} - {todo.title} &nbsp;
+                                    <span onClick={() => handleDelete(todo.id)}>X</span>
                                 </div>
                             )
                         })}
