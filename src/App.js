@@ -19,9 +19,16 @@ const App = () => { // class
     { id: 'todo3', title: 'Playing game', type: '1' }
   ]);
 
+  // bằng với componentDidMount
   useEffect(() => {
+    // không nên gọi thằng setState bên trong
     console.log('>>>> check run use effect');
-  })
+  }, [address])
+
+  useEffect(() => {
+    // không nên gọi thằng setState bên trong
+    console.log('>>>> check run use effect');
+  }, [todos])
 
   const handleEventClick = (event) => {
     // hooks not merge stage.
