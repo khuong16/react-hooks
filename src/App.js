@@ -24,7 +24,7 @@ const App = () => {
         <p>
           Hello {name} - Đây là năm {number} - Đây là Object {obj.name}
           <a href={link} target='blank'>Nhấn và link</a>
-          <p>{JSON.stringify(obj)}</p>
+          <p className='note' style={{ color: 'red', fontSize: '20px', marginTop: '15px' }}>{JSON.stringify(obj)}</p>
         </p>
       </header>
     </div>
