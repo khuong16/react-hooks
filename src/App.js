@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
+// import Hooks:
+import { useState } from 'react';
 
 // component: template + logic
 // JSX: code html trong 1 file js.
@@ -8,26 +10,29 @@ import Nav from './components/Nav';
 
 const App = () => { // class
 
-  let name = 'khuong';
-  let number = 2022;
-  let obj = {
-    name: 'Minh Khuong',
-    channel: 'Minh Khuong'
-  }
-  let link = 'https://github.com/khuong16/react-hooks/commits/dev';
+  let [name, setName] = useState('Khuong');
+  const [address, setAddress] = useState('');
 
   const handleEventClick = (event) => {
-    console.log('>>> click me: ', event.target.value);
+    console.log('>>> addresss: ', address);
+    setName(address);
   }
 
+  const handleOnChangeInput = (event) => {
+
+    setAddress(event.target.value);
+    //console.log(event.target.value);
+  }
+
+  // re-render
   return (
     <div className="App">
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello {name} - Đây là năm {number} - Đây là Object {obj.name}
-          <input type="text" value="Minh Khuong" onClick={(event) => handleEventClick(event)} />
+          Hello {name}
+          <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
           <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
         </p>
       </header>
