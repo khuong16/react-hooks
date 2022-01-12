@@ -3,11 +3,14 @@ const Todo = (props) => {
     // Chỉ truyền dữ liệu từ cha xuống con.
     // top -> bottom.
 
-    const todos = props.todo;
+    const todos = props.todos;
 
     return (
         <>
             <div className='todo-container'>
+                <div className="title-todo">
+                    {props.title}
+                </div>
                 {todos && todos.length > 0 &&
                     <>
                         {todos.map(todo => {
@@ -20,6 +23,7 @@ const Todo = (props) => {
                     </>
                 }
             </div>
+            <br />
         </>
     )
 }

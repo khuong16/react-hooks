@@ -14,9 +14,9 @@ const App = () => { // class
   let [name, setName] = useState('Khuong');
   const [address, setAddress] = useState('');
   const [todos, setTodos] = useState([
-    { id: 'todo1', title: 'Watching Hoi Dan IT Channel' },
-    { id: 'todo2', title: 'Doing homework' },
-    { id: 'todo3', title: 'Playing game' }
+    { id: 'todo1', title: 'Watching Hoi Dan IT Channel', type: '1' },
+    { id: 'todo2', title: 'Doing homework', type: '2' },
+    { id: 'todo3', title: 'Playing game', type: '1' }
   ]);
 
   const handleEventClick = (event) => {
@@ -30,7 +30,8 @@ const App = () => { // class
 
     let newToDo = {
       id: 'abc',
-      title: address
+      title: address,
+      type: 'random'
     }
     setTodos([...todos, newToDo]);
     setAddress('');
@@ -55,6 +56,12 @@ const App = () => { // class
         </p>
         <Todo
           todos={todos}
+          title="All Jobs"
+        />
+
+        <Todo
+          todos={todos.filter(item => item.type !== '1')}
+          title={`Khuong's todos`}
         />
       </header>
     </div>
