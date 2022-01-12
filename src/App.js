@@ -6,7 +6,7 @@ import Nav from './components/Nav';
 // JSX: code html trong 1 file js.
 // trình compiler là babel.
 
-const App = () => {
+const App = () => { // class
 
   let name = 'khuong';
   let number = 2022;
@@ -16,6 +16,10 @@ const App = () => {
   }
   let link = 'https://github.com/khuong16/react-hooks/commits/dev';
 
+  const handleEventClick = (event) => {
+    console.log('>>> click me: ', event.target.value);
+  }
+
   return (
     <div className="App">
       <Nav />
@@ -23,8 +27,8 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hello {name} - Đây là năm {number} - Đây là Object {obj.name}
-          <a href={link} target='blank'>Nhấn và link</a>
-          <p className='note' style={{ color: 'red', fontSize: '20px', marginTop: '15px' }}>{JSON.stringify(obj)}</p>
+          <input type="text" value="Minh Khuong" onClick={(event) => handleEventClick(event)} />
+          <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
         </p>
       </header>
     </div>
