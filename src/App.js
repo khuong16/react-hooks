@@ -3,23 +3,27 @@ import './App.css';
 
 // component: template + logic
 // JSX: code html trong 1 file js.
+// trình compiler là babel.
 
 const App = () => {
+
+  let name = 'khuong';
+  let number = 2022;
+  let obj = {
+    name: 'Minh Khuong',
+    channel: 'Minh Khuong'
+  }
+  let link = 'https://github.com/khuong16/react-hooks/commits/dev';
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello {name} - Đây là năm {number} - Đây là Object {obj.name}
+          <a href={link} target='blank'>Nhấn và link</a>
+          <p>{JSON.stringify(obj)}</p>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
