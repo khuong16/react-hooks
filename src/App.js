@@ -12,10 +12,27 @@ const App = () => { // class
 
   let [name, setName] = useState('Khuong');
   const [address, setAddress] = useState('');
+  const [todos, setTodos] = useState([
+    { id: 'todo1', title: 'Watching Hoi Dan IT Channel' },
+    { id: 'todo2', title: 'Doing homework' },
+    { id: 'todo3', title: 'Playing game' }
+  ]);
 
   const handleEventClick = (event) => {
-    console.log('>>> addresss: ', address);
-    setName(address);
+    // hooks not merge stage.
+    // ... spread
+
+    if (!address) {
+      alert('empty input');
+      return;
+    }
+
+    let newToDo = {
+      id: 'abc',
+      title: address
+    }
+    setTodos([...todos, newToDo]);
+    setAddress('');
   }
 
   const handleOnChangeInput = (event) => {
@@ -35,6 +52,19 @@ const App = () => { // class
           <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
           <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
         </p>
+        <div className='todo-container'>
+          {todos && todos.length > 0 &&
+            <>
+              {todos.map(todo => {
+                return (
+                  <div className='todo-child' key={todo.id}>
+                    {todo.id} - {todo.title}
+                  </div>
+                )
+              })}
+            </>
+          }
+        </div>
       </header>
     </div>
   );
