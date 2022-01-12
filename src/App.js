@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './components/Nav';
 // import Hooks:
 import { useState } from 'react';
+import Todo from './components/Todo';
 
 // component: template + logic
 // JSX: code html trong 1 file js.
@@ -52,19 +53,9 @@ const App = () => { // class
           <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
           <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
         </p>
-        <div className='todo-container'>
-          {todos && todos.length > 0 &&
-            <>
-              {todos.map(todo => {
-                return (
-                  <div className='todo-child' key={todo.id}>
-                    {todo.id} - {todo.title}
-                  </div>
-                )
-              })}
-            </>
-          }
-        </div>
+        <Todo
+          todos={todos}
+        />
       </header>
     </div>
   );
