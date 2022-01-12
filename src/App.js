@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
 // import Hooks:
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todo from './components/Todo';
 
 // component: template + logic
@@ -18,6 +18,10 @@ const App = () => { // class
     { id: 'todo2', title: 'Doing homework', type: '2' },
     { id: 'todo3', title: 'Playing game', type: '1' }
   ]);
+
+  useEffect(() => {
+    console.log('>>>> check run use effect');
+  })
 
   const handleEventClick = (event) => {
     // hooks not merge stage.
