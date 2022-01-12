@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 // import Hooks:
 import { useState, useEffect } from 'react';
 import Todo from './components/Todo';
+import Covid from './components/Covid';
 
 // component: template + logic
 // JSX: code html trong 1 file js.
@@ -66,7 +67,10 @@ const App = () => { // class
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+
+
+
+        {/* <p>
           Hello {name}
           <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
           <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
@@ -81,7 +85,9 @@ const App = () => { // class
           todos={todos.filter(item => item.type !== '1')}
           title={`Khuong's todos`}
           deleteDataToDo={deleteDataToDo}
-        />
+        /> */}
+
+        <Covid />
       </header>
     </div>
   );
