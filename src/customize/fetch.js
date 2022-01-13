@@ -39,6 +39,7 @@ const useFetch = (url) => {
             setIsLoading(false);
             alert(e);
         }
+        // khi component đc load thì mới đc load url.
     }, []);
 
 

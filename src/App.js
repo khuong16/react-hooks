@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './components/Todo';
 import Covid from './components/Covid';
+import { Countdown, NewCountDown } from './components/Countdown';
 
 // component: template + logic
 // JSX: code html trong 1 file js.
@@ -61,6 +62,11 @@ const App = () => { // class
     setTodos(currentTodos);
   }
 
+
+  const onTimesup = () => {
+    alert('times up')
+  }
+
   // re-render
   return (
     <div className="App">
@@ -86,7 +92,9 @@ const App = () => { // class
           title={`Khuong's todos`}
           deleteDataToDo={deleteDataToDo}
         /> */}
-
+        <Countdown onTimesup={onTimesup} />
+        <span>---------------------</span>
+        <NewCountDown onTimesup={onTimesup} />
         <Covid />
       </header>
     </div>

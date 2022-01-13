@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
 import useFetch from "../customize/fetch";
+import moment from 'moment';
+
 const Covid = () => {
 
-    const { data: dataCovid, isLoading, isError } = useFetch('https://api.covid19api.com/country/vietnam?from=2021-10-01T00:00:00Z&to=2021-10-20T00:00:00Z');
+    const today = new Date(new Date().setHours(0, 0, 0, 0));
+    // trừ đi 30 ngày của ngày hôm nay
+    const priorDate = moment().subtract(30, 'days');
+
+    const { data: dataCovid, isLoading, isError } =
+        useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate.toISOString()}&to=${today.toISOString()}`);
     // tương đương
     //let dataCovid = useFetch(url).data;
 
