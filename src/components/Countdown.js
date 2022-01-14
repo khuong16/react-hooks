@@ -6,6 +6,11 @@ class Countdown extends React.Component {
         count: 10
     }
 
+    componentWillUnmount() {
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
+    }
 
     componentDidMount() {
         // setTimeout(() => {
