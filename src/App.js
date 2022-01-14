@@ -7,6 +7,13 @@ import Todo from './components/Todo';
 import Covid from './components/Covid';
 import { Countdown, NewCountDown } from './components/Countdown';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 // component: template + logic
 // JSX: code html trong 1 file js.
 // trình compiler là babel.
@@ -69,35 +76,39 @@ const App = () => { // class
 
   // re-render
   return (
-    <div className="App">
-      <Nav />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Router>
+      <div className="App">
 
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
 
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/" exact>
+            <Covid />
+          </Route>
+          <Route path="/timer">
+            <Countdown onTimesup={onTimesup} />
+            <span>---------------------</span>
+            <NewCountDown onTimesup={onTimesup} />
 
-        {/* <p>
-          Hello {name}
-          <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
-          <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
-        </p>
-        <Todo
-          todos={todos}
-          title="All Jobs"
-          deleteDataToDo={deleteDataToDo}
-        />
+          </Route>
+          <Route path="/todo">
+            <Todo
+              todos={todos}
+              title="All Jobs"
+              deleteDataToDo={deleteDataToDo}
+            />
+            <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
+            <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
 
-        <Todo
-          todos={todos.filter(item => item.type !== '1')}
-          title={`Khuong's todos`}
-          deleteDataToDo={deleteDataToDo}
-        /> */}
-        <Countdown onTimesup={onTimesup} />
-        <span>---------------------</span>
-        <NewCountDown onTimesup={onTimesup} />
-        <Covid />
-      </header>
-    </div>
   );
 }
 
