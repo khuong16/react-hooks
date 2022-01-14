@@ -40,7 +40,7 @@ const useFetch = (url) => {
             alert(e);
         }
         // khi component đc load thì mới đc load url.
-    }, []);
+    }, [url]);
 
 
     // nhả ra data cần.

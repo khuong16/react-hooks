@@ -4,12 +4,11 @@ import moment from 'moment';
 
 const Covid = () => {
 
-    const today = new Date(new Date().setHours(0, 0, 0, 0));
+    const today = moment().startOf('day').toISOString(true);;
     // trừ đi 30 ngày của ngày hôm nay
-    const priorDate = moment().subtract(30, 'days');
+    const priorDate = moment().startOf('day').subtract(31, 'days').toISOString(true);;
 
-    const { data: dataCovid, isLoading, isError } =
-        useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate.toISOString()}&to=${today.toISOString()}`);
+    const { data: dataCovid, isLoading, isError } = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`)
     // tương đương
     //let dataCovid = useFetch(url).data;
 

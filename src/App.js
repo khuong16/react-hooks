@@ -71,7 +71,7 @@ const App = () => { // class
 
 
   const onTimesup = () => {
-    alert('times up')
+    //alert('times up')
   }
 
   // re-render
