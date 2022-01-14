@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
 import Todo from './components/Todo';
 import Covid from './components/Covid';
 import { Countdown, NewCountDown } from './components/Countdown';
-
+import Blog from './components/Blog';
+import DetailBlog from './components/DetailBlog';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,12 +32,12 @@ const App = () => { // class
   // bằng với componentDidMount
   useEffect(() => {
     // không nên gọi thằng setState bên trong
-    console.log('>>>> check run use effect');
+    //console.log('>>>> check run use effect');
   }, [address])
 
   useEffect(() => {
     // không nên gọi thằng setState bên trong
-    console.log('>>>> check run use effect');
+    //console.log('>>>> check run use effect');
   }, [todos])
 
   const handleEventClick = (event) => {
@@ -105,6 +106,15 @@ const App = () => { // class
             <input type="text" value={address} onChange={(event) => handleOnChangeInput(event)} />
             <button type="button" onClick={(event) => handleEventClick(event)}>Click me</button>
           </Route>
+
+          <Route path="/blog" exact>
+            <Blog />
+          </Route>
+
+          <Route path="/blog/:id">
+            <DetailBlog />
+          </Route>
+
         </Switch>
       </div>
     </Router>
