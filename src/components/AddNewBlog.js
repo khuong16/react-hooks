@@ -1,12 +1,13 @@
 import './Blog.scss';
 import { useState } from 'react';
+import axios from 'axios';
 
-const AddNewBlog = () => {
+const AddNewBlog = (props) => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleSubmitBtn = () => {
+    const handleSubmitBtn = async () => {
 
         // if (title === '' || title === null  || title === undefined) alert('empty title')
         if (!title) {
@@ -18,7 +19,19 @@ const AddNewBlog = () => {
             return;
         }
 
-        console.log('>>> check log data state: ', title, content);
+        let data = {
+            title: title,
+            body: content,
+            userId: 1,
+        }
+
+        let res = await axios.post('https://jsonplaceholder.typicode.com/posts', data);
+
+        if (res && res.data) {
+            let newBlog = res.data;
+            // console.log('>>> check log data state: ', newBlogs);
+            props.handleAddNew(newBlog);
+        }
     }
 
     return (
