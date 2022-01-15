@@ -1,6 +1,6 @@
 import useFetch from "../customize/fetch";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import './Blog.scss';
 
 const Blog = () => {
@@ -8,14 +8,20 @@ const Blog = () => {
     const { data: dataBlog, isLoading, isError } = useFetch(`https://jsonplaceholder.typicode.com/posts`, false)
 
     let newData = [];
+    let history = useHistory();
 
     if (dataBlog && dataBlog.length > 0) {
         newData = dataBlog.slice(0, 10);
         console.log('>>>> new Data', newData);
     }
 
+    const handleAddNew = () => {
+        history.push('/add-new-blog');
+    }
+
     return (
         <>
+            <div><button className="btn-add-new" onClick={handleAddNew}>+ Add new blog</button></div>
             <div className="blogs-container">
                 {isLoading === false && newData && newData.length > 0 && newData.map(item => {
 

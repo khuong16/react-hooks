@@ -8,6 +8,8 @@ import Covid from './components/Covid';
 import { Countdown, NewCountDown } from './components/Countdown';
 import Blog from './components/Blog';
 import DetailBlog from './components/DetailBlog';
+import AddNewBlog from './components/AddNewBlog';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -115,6 +117,9 @@ const App = () => { // class
             <DetailBlog />
           </Route>
 
+          <Route path='/add-new-blog'>
+            <AddNewBlog />
+          </Route>
         </Switch>
       </div>
     </Router>

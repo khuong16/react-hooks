@@ -30,7 +30,6 @@ const DetailBlog = () => {
                         </div>
                     </>
                 }
-
             </div>
         </>
     )
