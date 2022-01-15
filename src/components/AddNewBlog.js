@@ -7,6 +7,17 @@ const AddNewBlog = () => {
     const [content, setContent] = useState('');
 
     const handleSubmitBtn = () => {
+
+        // if (title === '' || title === null  || title === undefined) alert('empty title')
+        if (!title) {
+            alert('empty title');
+            return;
+        }
+        if (!content) {
+            alert('empty content')
+            return;
+        }
+
         console.log('>>> check log data state: ', title, content);
     }
 
