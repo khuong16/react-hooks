@@ -47,6 +47,7 @@ const useFetch = (url, isCovidData) => {
             fetchData();
         }, 3000);
 
+        // ComponentDidUnMount
         return () => {
             ourRequest.cancel('Operation canceled by the user.') // <-- 3rd step
         }
