@@ -10,6 +10,7 @@ import Blog from './components/Blog';
 import DetailBlog from './components/DetailBlog';
 import AddNewBlog from './components/AddNewBlog';
 import NotFound from './components/NotFound';
+import YoutubeSearch from './components/YoutubeSearch';
 
 import {
   BrowserRouter as Router,
@@ -120,6 +121,10 @@ const App = () => { // class
 
           <Route path='/add-new-blog'>
             <AddNewBlog />
+          </Route>
+
+          <Route path="/secret">
+            <YoutubeSearch />
           </Route>
 
           <Route path='*'>
